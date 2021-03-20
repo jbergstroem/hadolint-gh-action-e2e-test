@@ -1,0 +1,12 @@
+name: lint
+on: pull_request
+
+jobs:
+  hadolint:
+    name: "Hadolint 2"
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: jbergstroem/hadolint-gh-action@master
+        with:
+          dockerfile: "Dockerfile test/Dockerfile-error test/Dockerfile-warning"
